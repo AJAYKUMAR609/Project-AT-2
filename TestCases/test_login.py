@@ -35,6 +35,11 @@ class TestPassword:
         self.lp.enter_username(self.username1)
         self.lp.enter_password(self.password)
         self.lp.click_login_button()
+        # Title validation after login
+        expected_title = "OrangeHRM"
+        actual_title = self.driver.title
+        print(f"Page title after login: {actual_title}")
+        assert actual_title == expected_title, f"Title mismatch: expected '{expected_title}', got '{actual_title}'"
         self.lp.pim_locator()
         self.lp.admin()
 
